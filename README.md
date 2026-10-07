@@ -1,11 +1,11 @@
 # Lending-Club-Loan-Defaulters-Prediction
 
-# Introduction
+## Introduction
 LendingClub is a US peer-to-peer lending company, headquartered in San Francisco, California. It was the first peer-to-peer lender to register its offerings as securities with the Securities and Exchange Commission (SEC), and to offer loan trading on a secondary market. LendingClub is the world's largest peer-to-peer lending platform.
 
 Solving this case study will give us an idea about how real business problems are solved using EDA and Machine Learning. In this case study, we will also develop a basic understanding of risk analytics in banking and financial services and understand how data is used to minimise the risk of losing money while lending to customers.
 
-# Business Understanding
+## Business Understanding
 You work for the LendingClub company which specialises in lending various types of loans to urban customers. When the company receives a loan application, the company has to make a decision for loan approval based on the applicant’s profile. Two types of risks are associated with the bank’s decision:
 
 If the applicant is likely to repay the loan, then not approving the loan results in a loss of business to the company
@@ -20,14 +20,14 @@ Current: Applicant is in the process of paying the instalments, i.e. the tenure 
 Charged-off: Applicant has not paid the instalments in due time for a long period of time, i.e. he/she has defaulted on the loan
 Loan rejected: The company had rejected the loan (because the candidate does not meet their requirements etc.). Since the loan was rejected, there is no transactional history of those applicants with the company and so this data is not available with the company (and thus in this dataset)
 
-# Business Objectives
+## Business Objectives
 LendingClub is the largest online loan marketplace, facilitating personal loans, business loans, and financing of medical procedures. Borrowers can easily access lower interest rate loans through a fast online interface.
 Like most other lending companies, lending loans to ‘risky’ applicants is the largest source of financial loss (called credit loss). The credit loss is the amount of money lost by the lender when the borrower refuses to pay or runs away with the money owed. In other words, borrowers who defaultcause the largest amount of loss to the lenders. In this case, the customers labelled as 'charged-off' are the 'defaulters'.
 If one is able to identify these risky loan applicants, then such loans can be reduced thereby cutting down the amount of credit loss. Identification of such applicants using EDA and machine learning is the aim of this case study.
 In other words, the company wants to understand the driving factors (or driver variables) behind loan default, i.e. the variables which are strong indicators of default. The company can utilise this knowledge for its portfolio and risk assessment.
 To develop your understanding of the domain, you are advised to independently research a little about risk analytics (understanding the types of variables and their significance should be enough).
 
-# Data Description
+## Data Description
 Here is the information on the particular dataset:
 
 | # | LoanStatNew | Description |
@@ -61,10 +61,10 @@ Here is the information on the particular dataset:
 | 26 | `mort_acc` | Number of mortgage accounts. |
 | 27 | `pub_rec_bankruptcies` | Number of public record bankruptcies. |
 
-# Tools & Technologies
+## Tools & Technologies
 • Python (Data Profiling, Data Cleaning, EDA, Model Building)
 
-# Process
+## Process
 **Data Extraction, Profiling & Cleaning (Python):** Imported the **Lending Club loan dataset** and performed comprehensive **data profiling, data type validation, descriptive statistics, missing value analysis, duplicate/feature checks, and correlation analysis**. Cleaned the dataset by handling missing values, consolidating categories, removing irrelevant features, and addressing highly correlated and redundant variables to create a **machine-learning-ready dataset**.
 
 **Exploratory Data Analysis (Python):** Conducted **univariate and bivariate analysis** to examine loan status, loan amount, installment, loan grade, sub-grade, loan term, home ownership, verification status, loan purpose, employment information, income, debt-to-income ratio, credit utilization, and credit history. Used **distribution plots, boxplots, countplots, correlation heatmaps, and grouped statistical analysis** to identify patterns associated with loan repayment and default risk.
