@@ -61,3 +61,44 @@ Here is the information on the particular dataset:
 | 26 | `mort_acc` | Number of mortgage accounts. |
 | 27 | `pub_rec_bankruptcies` | Number of public record bankruptcies. |
 
+# Tools & Technologies
+• Python (Data Profiling, Data Cleaning, EDA, Model Building)
+
+# Process
+**Data Extraction, Profiling & Cleaning (Python):** Imported the **Lending Club loan dataset** and performed comprehensive **data profiling, data type validation, descriptive statistics, missing value analysis, duplicate/feature checks, and correlation analysis**. Cleaned the dataset by handling missing values, consolidating categories, removing irrelevant features, and addressing highly correlated and redundant variables to create a **machine-learning-ready dataset**.
+
+**Exploratory Data Analysis (Python):** Conducted **univariate and bivariate analysis** to examine loan status, loan amount, installment, loan grade, sub-grade, loan term, home ownership, verification status, loan purpose, employment information, income, debt-to-income ratio, credit utilization, and credit history. Used **distribution plots, boxplots, countplots, correlation heatmaps, and grouped statistical analysis** to identify patterns associated with loan repayment and default risk.
+
+**Feature Engineering & Data Preprocessing:** Performed feature engineering and transformation by converting **loan term into numeric values, extracting ZIP codes from address information, extracting the year from earliest credit line, and consolidating categorical values**. Removed features with limited predictive value, high cardinality, redundancy, or potential **data leakage**. Handled missing `mort_acc` values using **total account-based mean imputation**, removed remaining low-volume missing records, and converted categorical variables using **One-Hot Encoding with `drop_first=True`**.
+
+**Machine Learning Model Development:** Created a **stratified train-test split** and performed **training-data-only outlier treatment** for annual income, DTI, open accounts, total accounts, revolving utilization, and revolving balance. Applied **Min-Max Scaling** and developed **Logistic Regression and Random Forest Classification models** to predict whether a loan would be **Fully Paid or Charged Off**.
+
+**Model Evaluation & Comparison:** Evaluated model performance using **Accuracy, Confusion Matrix, Classification Report, and ROC-AUC**. Compared Logistic Regression and Random Forest using ROC curves and model performance visualizations. 
+
+## Key Insights
+
+1. **Loan Default Distribution:** The dataset contains **396,030 loans**, with **318,357 Fully Paid loans (80.39%)** and **77,673 Charged Off loans (19.61%)**. This indicates a significant **class imbalance**, which is important when evaluating the model because accuracy alone may not reflect how well defaults are identified.
+
+2. **Loan Grade & Default Risk:** Loan grade and sub-grade show a clear relationship with repayment behavior. **Lower-quality grades, particularly F and G sub-grades, show substantially higher Charged Off patterns** compared with higher-quality grades. This highlights **credit grade as an important risk indicator** for loan default prediction.
+
+3. **Interest Rate & Default Risk:** Exploratory analysis indicates that **higher-interest-rate loans are more likely to be Charged Off**. This suggests that interest rate captures underlying borrower risk and can be an important variable when assessing the probability of default.
+
+4. **Credit Profile & Financial Risk:** Variables such as **DTI, revolving utilization, revolving balance, open credit accounts, total credit accounts, and public credit records** provide additional information about borrower financial health. The analysis also identified extreme values in several variables, which were treated during preprocessing to reduce the impact of outliers on model performance.
+
+5. **Feature Selection & Data Quality:** Several features were removed or transformed based on their usefulness and data characteristics. **`emp_title`** was removed because of its very high cardinality, **`emp_length`** because default rates were similar across employment lengths, **`title`** because it duplicated information already represented by `purpose`, and **`issue_d`** because it could introduce **data leakage**. Missing `mort_acc` values were imputed using information from `total_acc`, while categorical variables were converted using **one-hot encoding**.
+
+6. **Model Performance:** Both **Logistic Regression and Random Forest achieved approximately 89% accuracy**. Logistic Regression achieved a **ROC-AUC of 0.906**, while Random Forest achieved **0.888**, indicating that Logistic Regression provided slightly better discrimination between Fully Paid and Charged Off loans. Both models, however, achieved only around **46% recall for the default class**, highlighting the difficulty of identifying Charged Off loans within the imbalanced dataset.
+
+## Conclusion
+
+This analysis of **396,030 Lending Club loans** examined borrower characteristics, loan attributes, credit profiles, and repayment patterns to identify factors associated with loan default and develop a predictive classification model.
+
+The exploratory analysis showed that **loan grade, sub-grade, interest rate, and borrower credit characteristics** are important indicators of repayment behavior. Lower-grade loans, particularly **F and G**, showed stronger Charged Off patterns, while higher interest rates were also associated with greater default risk.
+
+The preprocessing stage addressed **missing values, redundant features, categorical variables, data leakage, and extreme values** to create a machine-learning-ready dataset. Two classification models, **Logistic Regression and Random Forest**, were then developed and evaluated.
+
+Both models achieved approximately **89% accuracy**, but **Logistic Regression achieved a higher ROC-AUC of 0.906 compared with 0.888 for Random Forest**. This indicates that Logistic Regression provided slightly better overall discrimination between Fully Paid and Charged Off loans while remaining simpler and more interpretable.
+
+However, the models achieved only around **46% recall for the Charged Off class**, meaning a considerable number of potential defaults were not identified. This is an important limitation of the current models and is partly influenced by the **class imbalance** in the dataset, where Fully Paid loans significantly outnumber Charged Off loans.
+
+Overall, the analysis demonstrates how **data profiling, exploratory analysis, feature engineering, preprocessing, and machine learning** can be combined to support credit-risk analysis and loan default prediction. The results also highlight the importance of evaluating **class-specific metrics and ROC-AUC rather than relying solely on accuracy** when developing models for imbalanced financial datasets.
